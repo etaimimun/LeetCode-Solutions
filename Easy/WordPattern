@@ -1,0 +1,16 @@
+class Solution:
+    def wordPattern(self, pattern: str, s: str) -> bool:
+        wordMap = {}
+        sList = s.split()
+        if len(pattern) != len(sList):
+            return False
+        for i in range(len(pattern)):
+            if sList[i] in wordMap.values() and pattern[i] not in wordMap.keys():
+                return False
+            wordMap[pattern[i]] = sList[i]
+
+        for i in range(len(pattern)):
+            print(pattern[i])
+            if wordMap[pattern[i]] != sList[i]:
+                return False
+        return True

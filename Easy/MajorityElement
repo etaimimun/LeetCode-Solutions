@@ -1,0 +1,14 @@
+class Solution {
+public:
+    int majorityElement(vector<int>& nums) {
+        int counter = 0;
+        int currentCandidate = nums[0];
+        for (int currentNumber : nums) {
+            if(currentCandidate == currentNumber) { ++counter; }
+            else { --counter; }
+            if(counter == 0) {currentCandidate = currentNumber; ++counter; }
+        }
+        return currentCandidate;
+
+    }
+};

@@ -1,0 +1,15 @@
+class Solution:
+    def isSubsequence(self, s: str, t: str) -> bool:
+        i, j = 0, 0
+        #one pointer on s[0], another on t[0]
+        #t j traverses t, and if t[j] == s[i], move i by one
+        #if i completed traversing, return true
+        if len(s) == 0 and len(t) == 0:
+            return True
+        for j in range(len(t)):
+            if i < len(s):
+                if s[i] == t[j]:
+                    i += 1
+            if i >= len(s):
+                return True
+        return False

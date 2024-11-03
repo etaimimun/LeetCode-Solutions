@@ -1,0 +1,28 @@
+class Solution:
+    def containsNearbyDuplicate(self, nums: List[int], k: int) -> bool:
+        #parse through list using sliding window? // too slow
+        #try using hashmap with key value as index int
+        #have it update duplicate values
+        #if the value is dupicate, check if abs(i-j) <= k
+        # l = 0
+        # r = 0
+        # while l < len(nums):
+        #     while r < len(nums) and abs(l - r) <= k:
+        #         if l != r and nums[l] == nums[r]:
+        #             if abs(l - r) <= k:
+        #                 return True
+        #         r += 1
+        #     l += 1
+        #     r = l
+        # return False
+        values = {}
+        l = 0
+        while l < len(nums):
+            if nums[l] in values and l - values[nums[l]] <= k:
+                return True
+            values[nums[l]] = l
+            l += 1
+        return False
+        
+            
+            
